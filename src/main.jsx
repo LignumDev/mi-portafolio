@@ -1,10 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { MainPagina} from './MainPagina'
-import './styles/style.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+// import { MainPageGrid } from "./MainPageGrid";
+import { MainPageStack } from "./MainPageStack";
+import "./styles/style.css";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <MainPagina />
-  </StrictMode>,
-)
+    {/* <MainPageGrid /> */}
+    <MainPageStack />
+  </StrictMode>
+);

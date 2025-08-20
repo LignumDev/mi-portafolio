@@ -6,12 +6,10 @@ import { SideBarLeft } from "./components/SideBarLeft";
 import { SideBarRight } from "./components/SideBarRight";
 import { Navegation } from "./components/Navegation";
 
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
-export const MainPagina = () => {
+export const MainPageGrid = () => {
   return (
     <Box
       sx={{
