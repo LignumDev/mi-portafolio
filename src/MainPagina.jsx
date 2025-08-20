@@ -11,42 +11,84 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: (theme.vars ?? theme).palette.text.secondary,
-  ...theme.applyStyles("dark", {
-    backgroundColor: "#1A2027",
-  }),
-}));
-
 export const MainPagina = () => {
   return (
-    <Box sx={{ width: "100%", height: "100%", borderRadius: 1, bgcolor: 'primary.main'}}>
-      <Grid container spacing={2} sx={{ height: "100vh" , flexDirection: 'column'}}>
-        <Grid size={12} sx={{ height: "10vh" }}>
-          <Header />
+    <Box
+      sx={{
+        minWidth: "94vh",
+        height: "98vh",
+        bgcolor: "whitesmoke",
+      }}
+    >
+      <Grid
+        container
+        spacing={1}
+        rowSpacing={0.1}
+        sx={{
+          height: "98vh",
+          minWidth: "100vh",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <Grid>
+          <Box sx={{ minHeight: "8vh", bgcolor: "burlywood", padding: 1 }}>
+            <Header />
+          </Box>
         </Grid>
 
-        <Grid size={12} sx={{ height: "5vh" }}>
-          <Navegation />
+        <Grid>
+          <Box sx={{ minHeight: "3vh", bgcolor: "skyblue", padding: 1 }}>
+            <Navegation />
+          </Box>
         </Grid>
 
-        <Grid item xs={12} sx={{ flexGrow: 1 }}>
-          <Grid container spacing={2} sx={{ height: "100%" }}>
-            <Grid size={3} sx={{ flexGrow: 1 }}>
-              <SideBarLeft />
+        <Grid>
+          <Box sx={{ height: "78vh", bgcolor: "teal" }}>
+            <Grid
+              container
+              spacing={0.5}
+              margin={0}
+              padding={0}
+              columns={12}
+              sx={{
+                justifyContent: "space-evenly",
+                alignItems: "center",
+              }}
+            >
+              <Grid
+                size={2}
+              >
+                <Box
+                  sx={{
+                    bgcolor: "salmon",
+                    padding: 1,
+                    height: "76vh",
+                  }}
+                >
+                  <SideBarLeft />
+                </Box>
+              </Grid>
+
+              <Grid size={10}>
+                <Box
+                  sx={{
+                    bgcolor: "powderblue",
+                    padding: 1,
+                    height: "76vh",
+                  }}
+                >
+                  <Main />
+                </Box>
+              </Grid>
             </Grid>
-            <Grid size={9} sx={{ flexGrow: 1 }}>
-              <Main />
-            </Grid>
-          </Grid>
+          </Box>
         </Grid>
 
-        <Grid size={12} sx={{ height: "5vh" }}>
-          <Footer />
+        <Grid>
+          <Box sx={{ height: "2vh", bgcolor: "royalblue", padding: 1 }}>
+            <Footer />
+          </Box>
         </Grid>
       </Grid>
     </Box>
