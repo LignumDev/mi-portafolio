@@ -284,11 +284,11 @@ export const Main = () => {
           >
             <Box
               component="img"
-              src="/assets/universidades/umsa.png"
+              src= {`${import.meta.env.BASE_URL}assets/universidades/umsa.png`}
               alt="UMSA"
               sx={{
-                width: { xs: 70, sm: 90, md: 180 },
-                height: { xs: 70, sm: 90, md: 180 },
+                width: { xs: 70, sm: 130, md: 180 },
+                height: { xs: 70, sm: 130, md: 180 },
                 objectFit: "contain",
               }}
             />
@@ -338,11 +338,11 @@ export const Main = () => {
           >
             <Box
               component="img"
-              src="/assets/universidades/ucb.png"
+              src={`${import.meta.env.BASE_URL}assets/universidades/ucb.png`}
               alt="UMSA"
               sx={{
-                width: { xs: 70, sm: 90, md: 180 },
-                height: { xs: 70, sm: 90, md: 180 },
+                width: { xs: 70, sm: 130, md: 180 },
+                height: { xs: 70, sm: 130, md: 180 },
                 objectFit: "contain",
               }}
             />

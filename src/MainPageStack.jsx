@@ -13,7 +13,7 @@ export const MainPageStack = () => {
   return (
     <Box
       sx={{
-        padding: { xs: 0.0, sm: 1 },
+        padding: { xs: 0.0, sm: 0, md: 0.5 },
         marginBottom: 0, 
         height: { xs: "100vh", sm: "100vh", md: "98vh" },
         bgcolor: "transparent",
@@ -57,7 +57,7 @@ export const MainPageStack = () => {
         <Box
           sx={{
             bgcolor: "rgba(5, 0, 70, 0.3)",
-            width: { xs: "15%", sm: "20%", md: "15%" },
+            width: { xs: "15%", sm: "20%", md: "10%" },
             padding: 0,
             borderRadius: 1,
           }}
@@ -69,7 +69,7 @@ export const MainPageStack = () => {
         <Box
           sx={{
             bgcolor: "rgba(5, 0, 70, 0.3)",
-            width: "85%",
+            width: "100%",
             padding: 1,
             borderRadius: 1,
             overflowY: "auto",

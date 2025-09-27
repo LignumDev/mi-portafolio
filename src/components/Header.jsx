@@ -114,7 +114,7 @@ export const Header = () => {
           </Button>
           <Button
             variant="contained"
-            href="/assets/documentos/CV Landaeta Navarro Adolfo.pdf"
+            href={`${import.meta.env.BASE_URL}assets/documentos/CV Landaeta Navarro Adolfo.pdf`}
             target="_blank"
             sx={{
               fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },

@@ -3,19 +3,28 @@ import { Box, Typography } from "@mui/material";
 import TerminalIcon from "@mui/icons-material/Terminal";
 
 const techLogos = [
-  { name: "React", src: "/assets/logos/react.png" },
-  { name: "Supabase", src: "/assets/logos/supabase.png" },
-  { name: "Material UI", src: "/assets/logos/materialui.png" },
-  { name: "JavaScript", src: "/assets/logos/javascript.png" },
-  { name: "CSS", src: "/assets/logos/css.png" },
-  { name: "Vite", src: "/assets/logos/vite.png" },
-  { name: "GitHub", src: "/assets/logos/github.png" },
+  { name: "HTML5", src: `${import.meta.env.BASE_URL}assets/logos/html.png` },
+  { name: "CSS", src: `${import.meta.env.BASE_URL}assets/logos/css.png` },
+  {
+    name: "JavaScript",
+    src: `${import.meta.env.BASE_URL}assets/logos/javascript.png`,
+  },
+  { name: "SQL", src: `${import.meta.env.BASE_URL}assets/logos/sql.png` },
+  { name: "PHP", src: `${import.meta.env.BASE_URL}assets/logos/php.png` },
+  // { name: "Supabase", src: "/assets/logos/supabase.png" },
+  // { name: "Material UI", src: "/assets/logos/materialui.png" },
+  // { name: "Node.js", src: `${import.meta.env.BASE_URL}assets/logos/nodejs.png` },
+  // { name: "Express", src: `${import.meta.env.BASE_URL}assets/logos/express.png` },
+  // { name: "MongoDB", src: `${import.meta.env.BASE_URL}assets/logos/mongodb.png` },
+  // { name: "Git", src: `${import.meta.env.BASE_URL}assets/logos/git.png` },
+  // { name: "GitHub", src: `${import.meta.env.BASE_URL}assets/logos/github.png` },
 ];
 
 const learningLogos = [
-  { name: "TypeScript", src: "/assets/logos/angular.png" },
-  { name: "Tailwind", src: "/assets/logos/tailwind.png" },
-  { name: "Firebase", src: "/assets/logos/firebase.png" },
+  { name: "React", src: `${import.meta.env.BASE_URL}assets/logos/react.png` },
+  { name: "Angular", src: "/assets/logos/angular.png" },
+  // { name: "Tailwind", src: "/assets/logos/tailwind.png" },
+  // { name: "Firebase", src: "/assets/logos/firebase.png" },
 ];
 
 export const Sidebar = () => {
@@ -104,13 +113,14 @@ export const Sidebar = () => {
 
 // Carrusel vertical reutilizable
 const Carousel = ({ logos, animationName }) => {
+  const shouldAnimate = logos.length >= 3;
   return (
     <Box
       sx={{
         overflow: "hidden",
         position: "relative",
         width: "100%",
-        height: { xs: 200, sm: 250, md: "90%" },
+        height: { xs: "100%", sm: "100%", md: "90%" },
       }}
     >
       <Box
@@ -118,8 +128,10 @@ const Carousel = ({ logos, animationName }) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: 0.5,
-          animation: `${animationName} 20s linear infinite`,
+          gap: 0.9,
+          animation: shouldAnimate
+            ? `${animationName} 20s linear infinite`
+            : "none",
           "&:hover": {
             animationPlayState: "paused",
           },
@@ -144,8 +156,8 @@ const TechLogo = ({ src, alt }) => {
   return (
     <Box
       sx={{
-        width: { xs: 48, sm: 64, md: 120 },
-        height: { xs: 48, sm: 64, md: 120 },
+        width: { xs: 48, sm: 100, md: 100 },
+        height: { xs: 48, sm: 100, md: 100 },
         backgroundColor: "white",
         borderRadius: "50%",
         display: "flex",
