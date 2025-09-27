@@ -1,4 +1,49 @@
-html, body, #root {
+div,
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #4506f3, #007392);
+  background-size: 800% 800%;
+  animation: gradientShift 5s ease-in-out infinite;
+  color: rgb(253, 253, 253);
+}
+text {
+  color: white;
+  fill: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/* Estilo para scroll suave */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
 }

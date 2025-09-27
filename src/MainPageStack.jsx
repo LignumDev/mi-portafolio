@@ -5,74 +5,90 @@ import Divider from "@mui/material/Divider";
 import { Box, Container } from "@mui/material";
 import { Header } from "./components/Header";
 import { Navegation } from "./components/Navegation";
-import { SideBarLeft } from "./components/SideBarLeft";
 import { Main } from "./components/Main";
 import { Footer } from "./components/Footer";
+import { Sidebar } from "./components/Sidebar";
 
 export const MainPageStack = () => {
   return (
-    <Container
-      fixed
+    <Box
       sx={{
-        padding: 1,
-        height: "100vh",
-        bgcolor: "whitesmoke",
-        width: "100vw",
+        padding: { xs: 0.0, sm: 1 },
+        marginBottom: 0, 
+        height: { xs: "100vh", sm: "100vh", md: "98vh" },
+        bgcolor: "transparent",
+        display: "flex",
+        flexDirection: "column",
+        gap: 0.5,
       }}
     >
-      <Stack
-        spacing={{ xs: 0.5, sm: 1 }}
-        direction="column"
-        useFlexGap
-        sx={{ flexWrap: "wrap" }}
+      {/* Header */}
+      <Box
+        sx={{
+          backgroundColor: "rgba(5, 0, 70, 0.3)",
+          borderRadius: 1,
+        }}
       >
-        <Container sx={{ padding: 1, bgcolor: "burlywood", minHeight: "8vh" }}>
-          <Header />
-        </Container>
+        <Header />
+      </Box>
 
-        <Container sx={{ padding: 1, bgcolor: "skyblue", minHeight: "3vh" }}>
-          <Navegation />
-        </Container>
+      {/* Navegation */}
+      <Box
+        sx={{
+          padding: 0.5,
+          backgroundColor: "rgba(5, 0, 70, 0.3)",
+          borderRadius: 1,
+        }}
+      >
+        <Navegation />
+      </Box>
 
-        <Container sx={{ padding: 0, bgcolor: "teal", height: "76vh" }}>
-          <Stack
-            spacing={{ xs: 0.5, sm: 1 }}
-            direction="row"
-            divider={<Divider orientation="vertical" flexItem />}
-            useFlexGap
-            sx={{
-              flexWrap: "wrap",
-              justifyContent: "space-around",
-              alignItems: "stretch",
-            }}
-          >
-            <Container
-              sx={{
-                padding: 1,
-                bgcolor: "salmon",
-                minHeight: "76vh",
-                width: "20%",
-              }}
-            >
-              <SideBarLeft />
-            </Container>
-            <Container
-              sx={{
-                padding: 1,
-                bgcolor: "lightgray",
-                minHeight: "76vh",
-                width: "77%",
-              }}
-            >
-              <Main />
-            </Container>
-          </Stack>
-        </Container>
+      {/* Main layout */}
+      <Box
+        sx={{
+          flexGrow: 1,
+          display: "flex",
+          flexDirection: "row",
+          gap: 0.5,
+          overflow: "hidden",
+        }}
+      >
+        {/* Sidebar */}
+        <Box
+          sx={{
+            bgcolor: "rgba(5, 0, 70, 0.3)",
+            width: { xs: "15%", sm: "20%", md: "15%" },
+            padding: 0,
+            borderRadius: 1,
+          }}
+        >
+          <Sidebar />
+        </Box>
 
-        <Container sx={{ padding: 0, bgcolor: "steelblue", minHeight: "8vh" }}>
-          <Footer />
-        </Container>
-      </Stack>
-    </Container>
+        {/* Main content */}
+        <Box
+          sx={{
+            bgcolor: "rgba(5, 0, 70, 0.3)",
+            width: "85%",
+            padding: 1,
+            borderRadius: 1,
+            overflowY: "auto",
+          }}
+        >
+          <Main />
+        </Box>
+      </Box>
+
+      {/* Footer */}
+      <Box
+        sx={{
+          bgcolor: "rgba(5, 0, 70, 0.27)",
+          height: "3vh",
+          borderRadius: 1,
+        }}
+      >
+        <Footer />
+      </Box>
+    </Box>
   );
 };
