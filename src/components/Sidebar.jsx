@@ -22,7 +22,7 @@ const techLogos = [
 
 const learningLogos = [
   { name: "React", src: `${import.meta.env.BASE_URL}assets/logos/react.png` },
-  { name: "Angular", src: "/assets/logos/angular.png" },
+  { name: "Angular", src: `${import.meta.env.BASE_URL}/assets/logos/angular.png` },
   // { name: "Tailwind", src: "/assets/logos/tailwind.png" },
   // { name: "Firebase", src: "/assets/logos/firebase.png" },
 ];

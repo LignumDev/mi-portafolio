@@ -19,7 +19,7 @@ export const Header = () => {
         <Stack direction="row" spacing={2} alignItems="center">
           <Avatar
             alt="Adolfo Landaeta"
-            src="/assets/projects/foto.jpg"
+            src={`${import.meta.env.BASE_URL}assets/projects/foto.jpg`}
             sx={{
               width: { xs: 100, sm: 120, md: 150 },
               height: { xs: 130, sm: 120, md: 150 },
@@ -76,7 +76,8 @@ export const Header = () => {
         >
           <Button
             variant="outlined"
-            href="https://github.com/tuusuario"
+            href="https://github.com/LignumDev"
+            target="_blank"
             color="inherit"
             sx={{
               fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },
@@ -95,7 +96,8 @@ export const Header = () => {
           </Button>
           <Button
             variant="outlined"
-            href="https://linkedin.com/in/tuusuario"
+            href="https://www.linkedin.com/in/adolfo-landaeta-navarro-1b6766141?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BJpEOXSW6TMeCZHnuWC79lA%3D%3D"
+            target="_blank"
             color="white"
             sx={{
               fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },
@@ -114,7 +116,9 @@ export const Header = () => {
           </Button>
           <Button
             variant="contained"
-            href={`${import.meta.env.BASE_URL}assets/documentos/CV Landaeta Navarro Adolfo.pdf`}
+            href={`${
+              import.meta.env.BASE_URL
+            }assets/documentos/CV Landaeta Navarro Adolfo.pdf`}
             target="_blank"
             sx={{
               fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },

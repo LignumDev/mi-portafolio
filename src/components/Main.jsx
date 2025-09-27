@@ -499,27 +499,6 @@ export const Main = () => {
             >
               GitHub
             </Button> */}
-
-            <Button
-              variant="outlined"
-              href="/assets/documentos/CV Landaeta Navarro Adolfo.pdf"
-              target="_blank"
-              sx={{
-                color: "white",
-                borderColor: "white",
-                fontSize: { xs: "0.65rem", sm: "0.875rem", md: "1rem" },
-                paddingX: { xs: 1, sm: 2, md: 3 },
-                paddingY: { xs: 0.5, sm: 1 },
-                minWidth: { xs: "auto", sm: 120 },
-                transition: "0.3s",
-                "&:hover": {
-                  backgroundColor: "white",
-                  color: "#0000feff",
-                },
-              }}
-            >
-              Descargar CV
-            </Button>
           </Box>
         </Box>
       </Box>
