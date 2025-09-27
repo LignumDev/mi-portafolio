@@ -198,7 +198,7 @@ export const Main = () => {
                     alt={project.title}
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = "/assets/projects/default.png";
+                      e.target.src = `${import.meta.env.BASE_URL}assets/projects/default.png`;
                     }}
                   />
                   <CardContent>
