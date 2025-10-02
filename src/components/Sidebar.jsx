@@ -55,7 +55,6 @@ export const Sidebar = () => {
           bgcolor="blue"
           sx={{
             marginBottom: 1,
-            textAlign: "center", // 👈 esto lo centra horizontalmente
             width: "100%",
             fontSize: { xs: "0.60rem", sm: "0.875rem", md: "1rem" },
             textAlign: "center",
@@ -83,7 +82,6 @@ export const Sidebar = () => {
           bgcolor="blue"
           sx={{
             marginBottom: 1,
-            textAlign: "center", // 👈 esto lo centra horizontalmente
             width: "100%",
             fontSize: { xs: "0.60rem", sm: "0.875rem", md: "1rem" },
             textAlign: "center",
@@ -164,7 +162,6 @@ const TechLogo = ({ src, alt }) => {
         boxShadow: "0 0 8px rgba(0,0,0,0.2)",
         alignItems: "center",
         justifyContent: "center",
-        boxShadow: 2,
         transition: "transform 0.3s",
         overflow: "hidden",
         "&:hover": {

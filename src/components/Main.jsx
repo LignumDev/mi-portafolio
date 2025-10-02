@@ -426,7 +426,6 @@ export const Main = () => {
                           paddingX: 1.5,
                           paddingY: 0.5,
                           borderRadius: 1,
-                          fontSize: "0.85rem",
                           fontSize: { xs: "0.8rem", sm: "1.2rem" },
                         }}
                       >
