@@ -21,7 +21,7 @@ const projects = [
     title: "Plataforma de Registro y Gestión de Información Local - PRGIL",
     description:
       "Prototipo de sistema para optimizar la gestión de registros sindicales y trámites, facilitando la consulta de documentos y la generación de reportes.",
-    repo: "asd",
+    repo: "",
     image: `${import.meta.env.BASE_URL}assets/projects/1/1.png`,
     info: {
       resumen:
