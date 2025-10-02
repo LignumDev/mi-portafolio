@@ -10,8 +10,8 @@ export const Header = () => {
           flexDirection: { xs: "column", md: "row" },
           justifyContent: "center",
           alignItems: "center",
-          textAlign: { xs: "center", md: "center" }, // 👈 centra texto en móviles
-          gap: { xs: 1, md: 4 }, // 👈 más espacio en escritorio
+          textAlign: { xs: "center", md: "center" }, 
+          gap: { xs: 1, md: 4 },
           padding: { xs: 1, md: 2 },
         }}
       >
@@ -30,7 +30,7 @@ export const Header = () => {
               variant="h5"
               fontWeight="bold"
               lineHeight="1.2"
-              sx={{ fontSize: { xs: "1.2rem", sm: "1.5rem", md: "2rem" } }}
+              sx={{ fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.7rem" } }}
               marginBottom={1}
             >
               Adolfo Antonio Landaeta Navarro
@@ -38,7 +38,7 @@ export const Header = () => {
             <Typography
               variant="subtitle1"
               lineHeight="1.2"
-              sx={{ fontSize: { xs: ".8rem", sm: "1.25rem", md: "1.5rem" } }}
+              sx={{ fontSize: { xs: ".8rem", sm: "1.2rem", md: "1.3rem" } }}
               marginBottom={1}
             >
               Egresado en Ingeniería de Sistemas Informáticos
@@ -46,7 +46,7 @@ export const Header = () => {
             <Typography
               variant="subtitle1"
               lineHeight="1.2"
-              sx={{ fontSize: { xs: ".8rem", sm: "1.25rem", md: "1.5rem" } }}
+              sx={{ fontSize: { xs: ".8rem", sm: "1.2rem", md: "1.3rem" } }}
               marginBottom={1}
             >
               Licenciado en Ingeniería de Telecomunicaciones
@@ -55,11 +55,11 @@ export const Header = () => {
               variant="body2"
               sx={{
                 fontStyle: "italic",
-                fontSize: { xs: "0.6rem", sm: "1rem", md: "1.2rem" },
+                fontSize: { xs: "0.6rem", sm: "0.8rem", md: ".9rem" },
               }}
             >
-              Apasionado por la tecnología, el desarrollo web y la innovación.
-              digital.
+              Apasionado por la tecnología, el desarrollo web y la innovación
+              digital con inteligencia artificial.
             </Typography>
           </Box>
         </Stack>

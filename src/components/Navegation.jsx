@@ -14,7 +14,7 @@ export const Navegation = () => {
       <Box
         sx={{
           bgcolor: "#2E3B4E",
-          paddingY: 1,
+          paddingY: 0.5,
           paddingX: 2,
           borderRadius: 2,
           display: "flex",
@@ -24,7 +24,7 @@ export const Navegation = () => {
         <Stack
           direction="row"
           sx={{
-            gap: { xs: 1, sm: 4, md: 10 }, // 👈 espaciado adaptado por tamaño de pantalla
+            gap: { xs: 1, sm: 4, md: 10 },
           }}
           alignItems="center"
           justifyContent="center"
@@ -35,12 +35,12 @@ export const Navegation = () => {
               href={section.href}
               variant="text"
               sx={{
-                border: { xs: .1, sm: 0 }, // 👈 grosor del borde
+                border: { xs: .1, sm: 0 }, 
                 textAlign: "center",
-                fontSize: { xs: "0.6rem", sm: "0.875rem", md: "1rem" }, // 👈 tamaño de texto
-                paddingX: { xs: .5, sm: 2, md: 3 }, // 👈 horizontal
-                paddingY: { xs: .5, sm: 1 }, // 👈 vertical
-                minWidth: { xs: "auto", sm: 100 }, // 👈 ancho mínimo
+                fontSize: { xs: "0.6rem", sm: "0.875rem", md: "1rem" }, 
+                paddingX: { xs: .5, sm: 2, md: 3 },
+                paddingY: { xs: .5, sm: 1 }, 
+                minWidth: { xs: "auto", sm: 100 },
                 borderRadius: 2,
                 color: "white",
                 borderColor: "yellow",

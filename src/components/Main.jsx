@@ -10,31 +10,81 @@ import {
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useState } from "react";
+import { FullScreenModal } from "./FullScreenModal";
 
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const projects = [
   {
-    title: "Gestor de tareas",
+    title: "Plataforma de Registro y Gestión de Información Local - PRGIL",
     description:
-      "App web para gestionar tareas con Supabase, React y Material UI.",
-    repo: "https://github.com/tuusuario/todo-app",
-    image: "/assets/projects/1.png",
+      "Prototipo de sistema para optimizar la gestión de registros sindicales y trámites, facilitando la consulta de documentos y la generación de reportes.",
+    repo: "asd",
+    image: `${import.meta.env.BASE_URL}assets/projects/1/1.png`,
+    info: {
+      resumen:
+        "La Plataforma de Registro y Gestión de Información Local (PRGIL) es un sistema diseñado para la administración centralizada de registros de organizaciones sindicales y sus trámites. Opera bajo una arquitectura cliente-servidor en una red local, utilizando un único ordenador como servidor host. Sus funciones clave son optimizar la gestión de datos, permitir la consulta de documentación digital (PDF), y facilitar la generación de análisis estadísticos y reportes de conflictividad.",
+      funcionalidades: [
+        "Autenticación de usuarios para operaciones de registro y actualización.",
+        "Gestión completa de organizaciones sindicales: registro, edición, eliminación y búsqueda por nombre o sigla.",
+        "Registro y seguimiento de trámites con estados dinámicos: En proceso, Observado, Concluido.",
+        "Carga, visualización y gestión de documentación digital en formato PDF.",
+        "Generación de reportes de conflictividad mediante formularios, con almacenamiento histórico.",
+        "Visualización de estadísticas generales y métricas clave del sistema.",
+        "Gráficos interactivos (torta y barras) sobre tipos de organizaciones y trámites.",
+        "Representación jerárquica de afiliaciones mediante árboles interactivos.",
+        "Exportación de reportes, gráficos y datos en formatos PDF, PNG y JPG.",
+        "Acceso a guías informativas y tutoriales desde la pantalla de inicio.",
+      ],
+      tecnologias: {
+        Backend: [
+          "PHP",
+          "MySQL",
+          "Apache (servidor web)",
+          "XAMPP (paquete de servidor local)",
+        ],
+        Frontend: ["HTML", "JavaScript", "JQuery", "Bootstrap", "Mermaid"],
+      },
+    },
+    URL_documentacion: `${
+      import.meta.env.BASE_URL
+    }assets/projects/1/Manual Técnico PRGIL.pdf`,
   },
   {
-    title: "Portafolio personal",
+    title: "Portafolio profesional",
     description:
-      "Sitio web responsivo con sidebar animado y branding como 'Lignum'.",
-    repo: "https://github.com/tuusuario/portfolio",
-    image: "/assets/projects/2.png",
+      "Sitio web responsivo desarrollado con Vite y React, que presenta el perfil profesional, proyectos, estudios y contacto. Incluye animaciones, branding personalizado y organización visual de tecnologías.",
+    repo: "https://github.com/LignumDev/mi-portafolio",
+    image: `${import.meta.env.BASE_URL}assets/projects/2/2.png`,
+    info: {
+      resumen:
+        "Este portafolio fue creado como una plataforma profesional para presentar tu perfil como desarrollador junior. Está construido con Vite y React, e incorpora un diseño responsivo, sidebar animado, y una estética coherente con tu identidad como 'Lignum'. El sitio incluye secciones dedicadas a tu formación académica, proyectos destacados, contacto directo y descarga de CV. Cada componente fue diseñado pensando en la claridad, accesibilidad y presentación visual.",
+      funcionalidades: [
+        "Diseño responsivo adaptado a distintos tamaños de pantalla.",
+        "Sidebar animado con navegación fluida entre secciones.",
+        "Sección 'Sobre mí' con presentación profesional y objetivos.",
+        "Listado de proyectos con modales de pantalla completa y/o documentación técnica.",
+        "Sección de estudios con logos personalizados de universidades.",
+        "Botón para descarga directa de CV en formato PDF.",
+        "Sección de contacto con enlace directo a correo y LinkedIn.",
+        "Organización visual de tecnologías utilizadas en cada proyecto.",
+        "Animaciones suaves y estructura modular para escalabilidad futura.",
+      ],
+      tecnologias: {
+        Frontend: ["React", "Vite", "Material UI", "JavaScript", "CSS"],
+        Backend: ["Ninguno"], // No aplica en este caso, pero puedes agregar Supabase si lo integras
+      },
+    },
+    URL_documentacion: ``, // si tienes un PDF técnico
   },
-  {
-    title: "Blog técnico",
-    description: "Blog con Markdown, React Router y diseño minimalista.",
-    repo: "https://github.com/tuusuario/blog-tech",
-    image: "/assets/projects/3.png",
-  },
+  // {
+  //   title: "Blog técnico",
+  //   description: "Blog con Markdown, React Router y diseño minimalista.",
+  //   repo: "https://github.com/tuusuario/blog-tech",
+  //   image: "/assets/projects/3.png",
+  // },
 ];
 
 const CustomPrevArrow = (props) => {
@@ -97,6 +147,7 @@ export const Main = () => {
     nextArrow: <CustomNextArrow />,
   };
 
+  const [openModalIndex, setOpenModalIndex] = useState(null);
   return (
     <main>
       <Box sx={{ padding: 0.5, marginBottom: 1 }}>
@@ -198,7 +249,9 @@ export const Main = () => {
                     alt={project.title}
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = `${import.meta.env.BASE_URL}assets/projects/default.png`;
+                      e.target.src = `${
+                        import.meta.env.BASE_URL
+                      }assets/projects/default.png`;
                     }}
                   />
                   <CardContent>
@@ -217,14 +270,266 @@ export const Main = () => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" href={project.repo} target="_blank">
-                      Ver repositorio
+                    <Button
+                      size="small"
+                      onClick={() => setOpenModalIndex(index)}
+                    >
+                      Ver proyecto
                     </Button>
                   </CardActions>
                 </Card>
               </Box>
             ))}
           </Slider>
+
+          {openModalIndex !== null && (
+            <FullScreenModal
+              onClose={() => setOpenModalIndex(null)}
+              open={true}
+            >
+              <Box
+                sx={{
+                  maxWidth: "900px",
+                  margin: "0 auto",
+                  paddingX: { xs: 2, sm: 4 },
+                  paddingY: { xs: 2, sm: 0 },
+                  color: "white",
+                }}
+              >
+                {/* Título y descripción */}
+                <Box
+                  sx={{
+                    position: "sticky",
+                    top: 0,
+                    backgroundColor: "rgba(11, 4, 70, 0.96)",
+                    zIndex: 1350,
+                    paddingY: 2,
+                    paddingX: { xs: 2, sm: 4 },
+                    borderBottom: "1px solid #ffffff33",
+                  }}
+                >
+                  <Typography
+                    variant="h4"
+                    sx={{
+                      fontSize: { xs: "1.4rem", sm: "2rem" },
+                      fontWeight: "bold",
+                      color: "white",
+                    }}
+                  >
+                    {projects[openModalIndex].title}
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontSize: { xs: "0.9rem", sm: "1rem" },
+                      marginTop: 1,
+                      color: "white",
+                      textAlign: "justify",
+                    }}
+                  >
+                    {projects[openModalIndex].description}
+                  </Typography>
+                </Box>
+
+                {/* Imagen */}
+                <Box
+                  component="img"
+                  src={projects[openModalIndex].image}
+                  alt={projects[openModalIndex].title}
+                  sx={{
+                    width: "100%",
+                    maxHeight: { xs: "40vh", sm: "60vh" },
+                    objectFit: "contain",
+                    borderRadius: 3,
+                    marginBottom: 3,
+                  }}
+                />
+
+                {/* Resumen */}
+                <Typography
+                  variant="h6"
+                  color="rgba(220, 243, 11, 1)"
+                  sx={{ marginBottom: 1 }}
+                >
+                  📝 Resumen
+                </Typography>
+                <Typography
+                  variant="body2"
+                  fontSize={{ xs: "0.8rem", sm: "1.2rem" }}
+                  sx={{ marginBottom: 3, textAlign: "justify" }}
+                >
+                  {projects[openModalIndex].info.resumen}
+                </Typography>
+
+                {/* Funcionalidades */}
+                <Typography
+                  variant="h6"
+                  color="rgba(220, 243, 11, 1)"
+                  sx={{ marginBottom: 1 }}
+                >
+                  ⚙️ Funcionalidades
+                </Typography>
+                <ul
+                  style={{
+                    paddingLeft: "3rem",
+                    marginBottom: "2rem",
+                  }}
+                >
+                  {projects[openModalIndex].info.funcionalidades.map(
+                    (item, i) => (
+                      <li
+                        key={i}
+                        style={{
+                          marginBottom: "0.5rem",
+                          lineHeight: "1.5",
+                          fontSize: "clamp(0.85rem, 1vw + 0.5rem, 1.2rem)",
+                        }}
+                      >
+                        {item}
+                      </li>
+                    )
+                  )}
+                </ul>
+
+                {/* Tecnologías */}
+                <Typography
+                  variant="h6"
+                  color="rgba(220, 243, 11, 1)"
+                  sx={{ marginBottom: 1 }}
+                >
+                  🧪 Tecnologías utilizadas
+                </Typography>
+
+                {/* Backend */}
+                <Typography
+                  variant="subtitle1"
+                  color="rgba(220, 243, 11, 1)"
+                  sx={{ marginBottom: 1 }}
+                >
+                  🔧 Backend
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 1,
+                    marginBottom: 2,
+                  }}
+                >
+                  {projects[openModalIndex].info.tecnologias.Backend.map(
+                    (tech, i) => (
+                      <Box
+                        key={i}
+                        sx={{
+                          backgroundColor: "#ffffff22",
+                          paddingX: 1.5,
+                          paddingY: 0.5,
+                          borderRadius: 1,
+                          fontSize: "0.85rem",
+                          fontSize: { xs: "0.8rem", sm: "1.2rem" },
+                        }}
+                      >
+                        {tech}
+                      </Box>
+                    )
+                  )}
+                </Box>
+
+                {/* Frontend */}
+                <Typography
+                  variant="subtitle1"
+                  color="rgba(220, 243, 11, 1)"
+                  sx={{ marginBottom: 1 }}
+                >
+                  🎨 Frontend
+                </Typography>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: 1,
+                    marginBottom: 3,
+                  }}
+                >
+                  {projects[openModalIndex].info.tecnologias.Frontend.map(
+                    (tech, i) => (
+                      <Box
+                        key={i}
+                        sx={{
+                          backgroundColor: "#ffffff22",
+                          paddingX: 1.5,
+                          paddingY: 0.5,
+                          borderRadius: 1,
+                          fontSize: { xs: "0.8rem", sm: "1.2rem" },
+                        }}
+                      >
+                        {tech}
+                      </Box>
+                    )
+                  )}
+                </Box>
+
+                {/* Botones */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: { xs: "column", sm: "row" },
+                    gap: 2,
+                    justifyContent: "center",
+                    marginTop: 3,
+                    alignItems: "center",
+                  }}
+                >
+                  {projects[openModalIndex].URL_documentacion?.trim() && (
+                    <Button
+                      variant="outlined"
+                      href={projects[openModalIndex].URL_documentacion}
+                      target="_blank"
+                      sx={{
+                        width: "fit-content",
+                        minWidth: "160px",
+                        color: "white",
+                        borderColor: "white",
+                        fontSize: { xs: "0.7rem", sm: "1rem" },
+                        paddingX: 2,
+                        paddingY: 1,
+                        "&:hover": {
+                          backgroundColor: "white",
+                          color: "#1e1e1e",
+                        },
+                      }}
+                    >
+                      Ver documentación
+                    </Button>
+                  )}
+
+                  {projects[openModalIndex].repo?.trim() && (
+                    <Button
+                      variant="outlined"
+                      href={projects[openModalIndex].repo}
+                      target="_blank"
+                      sx={{
+                        width: "fit-content",
+                        minWidth: "160px",
+                        color: "white",
+                        borderColor: "white",
+                        fontSize: { xs: "0.7rem", sm: "1rem" },
+                        paddingX: 2,
+                        paddingY: 1,
+                        "&:hover": {
+                          backgroundColor: "white",
+                          color: "#1e1e1e",
+                        },
+                      }}
+                    >
+                      Ir al repositorio
+                    </Button>
+                  )}
+                </Box>
+              </Box>
+            </FullScreenModal>
+          )}
 
           {/* Animaciones CSS */}
           <style>
@@ -284,7 +589,7 @@ export const Main = () => {
           >
             <Box
               component="img"
-              src= {`${import.meta.env.BASE_URL}assets/universidades/umsa.png`}
+              src={`${import.meta.env.BASE_URL}assets/universidades/umsa.png`}
               alt="UMSA"
               sx={{
                 width: { xs: 70, sm: 130, md: 180 },
