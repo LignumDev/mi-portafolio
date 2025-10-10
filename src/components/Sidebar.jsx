@@ -56,11 +56,11 @@ export const Sidebar = () => {
           sx={{
             marginBottom: 1,
             width: "100%",
-            fontSize: { xs: "0.60rem", sm: "0.875rem", md: "1rem" },
+            fontSize: { xs: "0.40rem", sm: "0.875rem", md: "1rem" },
             textAlign: "center",
           }}
         >
-          Dominio
+          Conocimiento
         </Typography>
         <Carousel logos={techLogos} animationName="scrollTech" />
       </Box>
@@ -83,11 +83,11 @@ export const Sidebar = () => {
           sx={{
             marginBottom: 1,
             width: "100%",
-            fontSize: { xs: "0.60rem", sm: "0.875rem", md: "1rem" },
+            fontSize: { xs: "0.40rem", sm: "0.875rem", md: "1rem" },
             textAlign: "center",
           }}
         >
-          Nuevas
+          Aprendiendo
         </Typography>
         <Carousel logos={learningLogos} animationName="scrollLearning" />
       </Box>

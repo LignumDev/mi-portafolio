@@ -20,8 +20,7 @@ const projects = [
   {
     title: "Plataforma de Registro y Gestión de Información Local - PRGIL",
     description:
-      "Prototipo de sistema para optimizar la gestión de registros sindicales y trámites, facilitando la consulta de documentos y la generación de reportes.",
-    repo: "",
+      "Prototipo de sistema para optimizar la gestión de registros sindicales y trámites, facilitando la consulta de documentos y la generación de reportes. (Codigo Restringido por seguridad)" ,
     image: `${import.meta.env.BASE_URL}assets/projects/1/1.png`,
     info: {
       resumen:
@@ -48,15 +47,16 @@ const projects = [
         Frontend: ["HTML", "JavaScript", "JQuery", "Bootstrap", "Mermaid"],
       },
     },
+    repo: "",
     URL_documentacion: `${
       import.meta.env.BASE_URL
     }assets/projects/1/Manual Técnico PRGIL.pdf`,
+    descarga: "",
   },
   {
     title: "Portafolio profesional",
     description:
       "Sitio web responsivo desarrollado con Vite y React, que presenta el perfil profesional, proyectos, estudios y contacto. Incluye animaciones, branding personalizado y organización visual de tecnologías.",
-    repo: "https://github.com/LignumDev/mi-portafolio",
     image: `${import.meta.env.BASE_URL}assets/projects/2/2.png`,
     info: {
       resumen:
@@ -74,17 +74,45 @@ const projects = [
       ],
       tecnologias: {
         Frontend: ["React", "Vite", "Material UI", "JavaScript", "CSS"],
-        Backend: ["Ninguno"], // No aplica en este caso, pero puedes agregar Supabase si lo integras
+        Backend: ["Ninguno"],
       },
     },
-    URL_documentacion: ``, // si tienes un PDF técnico
+    repo: "https://github.com/LignumDev/mi-portafolio",
+    URL_documentacion: ``,
+    descarga: "",
   },
-  // {
-  //   title: "Blog técnico",
-  //   description: "Blog con Markdown, React Router y diseño minimalista.",
-  //   repo: "https://github.com/tuusuario/blog-tech",
-  //   image: "/assets/projects/3.png",
-  // },
+  {
+    title: "Demo - Lost Time",
+    description:
+      "Videojuego narrativo desarrollado en RPG Maker, centrado en la exploración, toma de decisiones y combate por turnos.",
+    image: `${import.meta.env.BASE_URL}assets/projects/3/3.png`,
+    info: {
+      resumen:
+        "Lost Time es un videojuego de rol desarrollado con RPG Maker para construir una narrativa interactiva ambientada en un mundo ficticio en conflicto. El jugador asume el rol de un líder rebelde que debe tomar decisiones estratégicas, explorar mapas, interactuar con NPCs y enfrentar enemigos en combates por turnos. El proyecto se enfocó en el diseño de mecánicas, balance de dificultad, y personalización de assets visuales.",
+      funcionalidades: [
+        "Sistema de combate por turnos con habilidades personalizadas.",
+        "Inventario dinámico y sistema de equipamiento.",
+        "Eventos interactivos con diálogos.",
+        "Diseño de mapas con zonas urbanas, bosques y mazmorras.",
+        "Menú principal personalizado con música y animaciones.",
+        "Integración de plugins para efectos visuales.",
+      ],
+      tecnologias: {
+        Frontend: [
+          "RPG Maker MV",
+          "JavaScript (eventos)",
+          "Plugins externos",
+          "Tilesets personalizados",
+          "Sprites editados",
+          "Música libre de derechos",
+        ],
+        Backend: ["Ninguno"],
+      },
+    },
+    repo: "",
+    URL_documentacion: "",
+    descarga: "https://drive.google.com/file/d/104a-_lXyaQGRfMyX7GTxIdzbWAk09d74/view?usp=sharing",
+  },
 ];
 
 const CustomPrevArrow = (props) => {
@@ -271,7 +299,7 @@ export const Main = () => {
                   </CardContent>
                   <CardActions>
                     <Button
-                      size="small"
+                      size="large"
                       onClick={() => setOpenModalIndex(index)}
                     >
                       Ver proyecto
@@ -523,6 +551,29 @@ export const Main = () => {
                       }}
                     >
                       Ir al repositorio
+                    </Button>
+                  )}
+
+                  {projects[openModalIndex].descarga?.trim() && (
+                    <Button
+                      variant="outlined"
+                      href={projects[openModalIndex].descarga}
+                      target="_blank"
+                      sx={{
+                        width: "fit-content",
+                        minWidth: "160px",
+                        color: "white",
+                        borderColor: "white",
+                        fontSize: { xs: "0.7rem", sm: "1rem" },
+                        paddingX: 2,
+                        paddingY: 1,
+                        "&:hover": {
+                          backgroundColor: "white",
+                          color: "#1e1e1e",
+                        },
+                      }}
+                    >
+                      Software
                     </Button>
                   )}
                 </Box>
